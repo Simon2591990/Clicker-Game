@@ -1,7 +1,7 @@
 import { Button, Grid, Toolbar, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 
-function AutoClickerTile({autoClicker, setClicksPerSecond, clicksPerSecond, setCash, cash}) {
+function AutoClickerTile({shortNumber, autoClicker, setClicksPerSecond, clicksPerSecond, setCash, cash}) {
 
     const [doublerCost, setDoublerCost] = useState(autoClicker.cost * 50)
 
@@ -14,7 +14,10 @@ function AutoClickerTile({autoClicker, setClicksPerSecond, clicksPerSecond, setC
         amount: autoClicker.amount
     })
 
+    
+
     const handleBuy = () => {
+        console.log(thisClicker.cost)
         if (cash >= thisClicker.cost){
             setCash(cash - thisClicker.cost)
             setClicksPerSecond(clicksPerSecond + thisClicker.increment )
@@ -53,16 +56,16 @@ function AutoClickerTile({autoClicker, setClicksPerSecond, clicksPerSecond, setC
                 {thisClicker.name}
             </Button>
             <Typography>
-                Cost: {thisClicker.cost}
+                Cost: {shortNumber(thisClicker.cost)}
             </Typography>
             <Typography>
-                Amount: {thisClicker.amount}
+                Amount: {shortNumber(thisClicker.amount)}
             </Typography>
             <Typography>
-                CPS: {thisClicker.increment * 50}
+                CPS: {shortNumber(thisClicker.increment * 50)}
             </Typography>
             <Typography>
-                Total CPS: {thisClicker.increment * 50 * thisClicker.amount}
+                Total CPS: {shortNumber(thisClicker.increment * 50 * thisClicker.amount)}
             </Typography>
             <Toolbar/>
             <Grid>
@@ -73,7 +76,7 @@ function AutoClickerTile({autoClicker, setClicksPerSecond, clicksPerSecond, setC
                     Rank: {rank}
                 </Button>
                 <Typography>
-                    Cost: {doublerCost}
+                    Cost: {shortNumber(doublerCost)}
                 </Typography>
             </Grid>
 

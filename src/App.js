@@ -18,6 +18,23 @@ function App() {
       this.amount = 0
     }
   }
+  const shortNumber = (number) => {
+    number = Math.round(number)
+    
+    if (number.toString().length > 12){
+        return Math.round(number / 1000000000000 * 1000) / 1000 + " Trillion"
+    }
+    if (number.toString().length > 9){
+        return Math.round(number / 1000000000 * 1000) / 1000 + " Billion"
+    }
+    if (number.toString().length > 6){
+        return Math.round(number / 1000000 * 1000) / 1000 + " Million"
+    }
+    if (number.toString().length > 3){
+        return Math.round(number / 1000 * 1000) / 1000 + " Thousand"
+    }
+    return Math.round(number)
+}
 
   const autoClicker1 = new AutoClicker('Lemonade Stand', 10, 0.02);
   const autoClicker2 = new AutoClicker('Dog Walker', 50, 0.1);
@@ -34,6 +51,7 @@ function App() {
         setCash={setCash}
         cash={cash}
         autoClicker={autoClicker}
+        shortNumber={shortNumber}
         />
     )
   })
@@ -71,10 +89,10 @@ function App() {
     <Toolbar/>
     <Grid class='App'>
       <h2>
-        Cash: {Math.round(cash)}
+        Cash: {shortNumber(cash)}
       </h2>
       <h3>
-        Clicks per second: {Math.round(clicksPerSecond * 50)}
+        Clicks per second: {shortNumber(clicksPerSecond * 50)}
       </h3>
       <Button onClick={handleManualClick} variant='contained'  color='primary'>
         Click Me
