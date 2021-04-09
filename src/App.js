@@ -22,16 +22,16 @@ function App() {
     number = Math.round(number)
     
     if (number.toString().length > 12){
-        return Math.round(number / 1000000000000 * 1000) / 1000 + " Trillion"
+        return Math.round(number / 1000000000000 * 100) / 100 + " Trillion"
     }
     if (number.toString().length > 9){
-        return Math.round(number / 1000000000 * 1000) / 1000 + " Billion"
+        return Math.round(number / 1000000000 * 100) / 100 + " Billion"
     }
     if (number.toString().length > 6){
-        return Math.round(number / 1000000 * 1000) / 1000 + " Million"
+        return Math.round(number / 1000000 * 100) / 100 + " Million"
     }
     if (number.toString().length > 3){
-        return Math.round(number / 1000 * 1000) / 1000 + " Thousand"
+        return Math.round(number / 1000 * 100) / 100 + " Thousand"
     }
     return Math.round(number)
 }
