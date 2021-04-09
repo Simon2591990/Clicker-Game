@@ -59,15 +59,13 @@ function App() {
 
   return (
    <>
-    <AppBar  position='fixed'>
-      <Grid container justify='space-between'>
+    <AppBar>
+      <Grid container justify='center'>
         <Typography variant='h3'>
           Money Tycoon
         </Typography>
-        <Button color='inherit' edge='end'>
-          Upgrades
-        </Button>
       </Grid>
+        
 
     </AppBar>
     <Toolbar/>
