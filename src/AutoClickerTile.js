@@ -17,7 +17,7 @@ function AutoClickerTile({shortNumber, autoClicker, setClicksPerSecond, clicksPe
     
 
     const handleBuy = () => {
-        console.log(thisClicker.cost)
+        
         if (cash >= thisClicker.cost){
             setCash(cash - thisClicker.cost)
             setClicksPerSecond(clicksPerSecond + thisClicker.increment )
