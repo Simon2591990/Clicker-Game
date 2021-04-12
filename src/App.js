@@ -30,22 +30,33 @@ function App() {
     if (number.toString().length > 6){
         return Math.round(number / 1000000 * 100) / 100 + " Million"
     }
-    if (number.toString().length > 3){
+    if (number.toString().length > 5){
         return Math.round(number / 1000 * 100) / 100 + " Thousand"
     }
     return Math.round(number)
-}
+} 
 
   const autoClicker1 = new AutoClicker('Lemonade Stand', 10, 0.02);
   const autoClicker2 = new AutoClicker('Dog Walker', 50, 0.1);
   const autoClicker3 = new AutoClicker('NewsPaper Stall', 250, 0.5)
   const autoClicker4 = new AutoClicker('Taxi', 1250, 2.5)
+  const autoClicker5 = new AutoClicker('Car Wash', 6250, 12.5)
+  const autoClicker6 = new AutoClicker('Pizza Shop', 31250, 62.5)
+  const autoClicker7 = new AutoClicker('Donut Factory', 156250, 312.5)
 
-  const autoClickerArray = [autoClicker1, autoClicker2, autoClicker3, autoClicker4]
+  const autoClickerArray = [
+    autoClicker1, 
+    autoClicker2, 
+    autoClicker3, 
+    autoClicker4,
+    autoClicker5,
+    autoClicker6,
+    autoClicker7
+  ]
 
   const autoClickerNodes = autoClickerArray.map((autoClicker, index) => {
     return(
-      <AutoClickerTile 
+      <AutoClickerTile item xs={3}
         setClicksPerSecond={setClicksPerSecond} 
         clicksPerSecond={clicksPerSecond}
         setCash={setCash}
@@ -100,7 +111,8 @@ function App() {
       <Toolbar/>
         <Grid 
           container
-          justify='space-around' 
+          spacing='3'
+          justify='space-evenly' 
           >
           {autoClickerNodes}
         </Grid>
