@@ -24,19 +24,19 @@ function App() {
     number = Math.round(number)
     
     if (number.toString().length > 15){
-        return Math.round(number / 1000000000000000 * 100) / 100 + " Quadrillion"
+        return parseFloat(Math.round(number / 1000000000000000 * 1000 ) / 1000).toFixed(3)  + " Quadrillion"
     }
     if (number.toString().length > 12){
-        return Math.round(number / 1000000000000 * 100) / 100 + " Trillion"
+        return parseFloat(Math.round(number / 1000000000000 * 1000) / 1000).toFixed(3) + " Trillion"
     }
     if (number.toString().length > 9){
-        return Math.round(number / 1000000000 * 100) / 100 + " Billion"
+        return parseFloat(Math.round(number / 1000000000 * 1000) / 1000).toFixed(3) + " Billion"
     }
     if (number.toString().length > 6){
-        return Math.round(number / 1000000 * 100) / 100 + " Million"
+        return parseFloat(Math.round(number / 1000000 * 1000) / 1000).toFixed(3) + " Million"
     }
-    if (number.toString().length > 5){
-        return Math.round(number / 1000 * 10) / 10 + " Thousand"
+    if (number.toString().length > 4){
+        return  parseFloat(Math.round(number / 1000 * 1000 ) / 1000).toFixed(3) + " Thousand"
     }
     return Math.round(number)
 } 
@@ -104,10 +104,12 @@ function App() {
 
     </AppBar>
     <Toolbar/>
-    <Grid class='App'>
+    <Grid class='App' >
       <h2>
-        Cash: {shortNumber(cash)}
+        Cash: £{shortNumber(cash)}
       </h2>
+     
+      
       <h3> 
          Clicks per second: {shortNumber(clicksPerSecond * 50)}
       </h3>

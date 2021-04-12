@@ -56,7 +56,7 @@ function AutoClickerTile({shortNumber, autoClicker, setClicksPerSecond, clicksPe
                 {thisClicker.name}
             </Button>
             <Typography>
-                Cost: {shortNumber(thisClicker.cost)}
+                Cost: £{shortNumber(thisClicker.cost)}
             </Typography>
             <Typography>
                 Amount: {shortNumber(thisClicker.amount)}
@@ -76,7 +76,7 @@ function AutoClickerTile({shortNumber, autoClicker, setClicksPerSecond, clicksPe
                     Rank: {rank}
                 </Button>
                 <Typography>
-                    Cost: {shortNumber(doublerCost)}
+                    Cost: £{shortNumber(doublerCost)}
                 </Typography>
             </Grid>
 
