@@ -23,6 +23,9 @@ function App() {
   const shortNumber = (number) => {
     number = Math.round(number)
     
+    if (number.toString().length > 15){
+        return Math.round(number / 1000000000000000 * 100) / 100 + " Quadrillion"
+    }
     if (number.toString().length > 12){
         return Math.round(number / 1000000000000 * 100) / 100 + " Trillion"
     }
