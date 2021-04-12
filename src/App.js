@@ -18,6 +18,8 @@ function App() {
       this.amount = 0
     }
   }
+  // divide number by the affix to get the short number
+  // multiyply followed by divide gives the relevent decimal places
   const shortNumber = (number) => {
     number = Math.round(number)
     
@@ -31,7 +33,7 @@ function App() {
         return Math.round(number / 1000000 * 100) / 100 + " Million"
     }
     if (number.toString().length > 5){
-        return Math.round(number / 1000 * 100) / 100 + " Thousand"
+        return Math.round(number / 1000 * 10) / 10 + " Thousand"
     }
     return Math.round(number)
 } 
@@ -68,12 +70,13 @@ function App() {
   })
 
 
-
+  // Game Ticker
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCash(cash => cash + clicksPerSecond)
       console.log('tick')
-    }, 20);
+    }, 20  ); // miliseconds 20 = 50 ticks per second
     return () => clearInterval(interval);
   }, [cash]);
 
@@ -102,8 +105,8 @@ function App() {
       <h2>
         Cash: {shortNumber(cash)}
       </h2>
-      <h3>
-        Clicks per second: {shortNumber(clicksPerSecond * 50)}
+      <h3> 
+         Clicks per second: {shortNumber(clicksPerSecond * 50)}
       </h3>
       <Button onClick={handleManualClick} variant='contained'  color='primary'>
         Click Me
